@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { ChevronRight, Plus, MessageSquare } from 'lucide-react';
-import { Card, Badge, ProgressBar, SectionTitle, PageHeader, Empty, Field, inputClass, btnPrimary, btnGhost, btnIcon } from '../components/ui';
+import { Card, Badge, ProgressBar, PageHeader, Field, inputClass, btnPrimary, btnGhost } from '../components/ui';
 import { STATUS_CONFIG, PRIORITY_CONFIG, statusById } from '../lib/constants';
-import { formatMinutes, todayLocal } from '../lib/date';
+import { formatMinutes } from '../lib/date';
 import type { GrammarTopic, GrammarPhase, StudySession, TopicStatus, PersonalPriority } from '../types/database';
 
 interface Props {

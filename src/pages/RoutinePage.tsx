@@ -1,8 +1,6 @@
 import { Card, PageHeader, SectionTitle } from '../components/ui';
 import { CATEGORY_CONFIG } from '../lib/constants';
 
-const DAYS = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
-
 const ROUTINE: { day: string; slots: { time: string; activity: string; cat: string; min: number }[] }[] = [
   {
     day: 'Lunes',
@@ -88,7 +86,7 @@ export function RoutinePage() {
             <div className="flex flex-col gap-2">
               {d.slots.map((s, i) => (
                 <div key={i} className="flex gap-2.5">
-                  <div className="w-1 rounded-full shrink-0" style={{ background: CATEGORY_CONFIG[s.cat]?.color ?? '#ccc' }} />
+                  <div className="w-1 rounded-full shrink-0" style={{ background: (CATEGORY_CONFIG as Record<string, { color: string }>)[s.cat]?.color ?? '#ccc' }} />
                   <div>
                     <div className="text-[11px] text-[#5B6678]">{s.time}</div>
                     <div className="text-sm font-semibold leading-tight">{s.activity}</div>

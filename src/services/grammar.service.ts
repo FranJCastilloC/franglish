@@ -44,7 +44,7 @@ export async function fetchTopicsWithProgress(userId: string): Promise<GrammarTo
   const modulesByTopic = new Map<string, Module[]>();
   for (const tm of topicModules ?? []) {
     const list = modulesByTopic.get(tm.grammar_topic_id) ?? [];
-    if (tm.module) list.push(tm.module as Module);
+    if (tm.module) list.push(tm.module as unknown as Module);
     modulesByTopic.set(tm.grammar_topic_id, list);
   }
 

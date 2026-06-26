@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Plus, Pencil, Trash2, X, Check } from 'lucide-react';
-import { Card, SectionTitle, PageHeader, Empty, Field, Badge, RatingButtons, inputClass, btnPrimary, btnGhost, btnDanger, btnIcon } from '../components/ui';
+import { Card, PageHeader, Empty, Field, Badge, RatingButtons, inputClass, btnPrimary, btnGhost, btnDanger, btnIcon } from '../components/ui';
 import { CATEGORY_CONFIG, CATEGORIES } from '../lib/constants';
 import { todayLocal } from '../lib/date';
 import type { JournalEntry, GrammarTopic, Category } from '../types/database';

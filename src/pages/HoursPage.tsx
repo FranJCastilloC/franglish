@@ -80,7 +80,7 @@ export function HoursPage({ sessions }: Props) {
                   <CartesianGrid strokeDasharray="3 3" stroke="#EEF1F7" vertical={false} />
                   <XAxis dataKey="name" tick={{ fontSize: 10 }} interval={0} angle={-20} textAnchor="end" height={60} />
                   <YAxis tick={{ fontSize: 11 }} />
-                  <Tooltip formatter={(v: number) => formatMinutes(v)} />
+                  <Tooltip formatter={(v) => formatMinutes(Number(v ?? 0))} />
                   <Bar dataKey="min" radius={[6, 6, 0, 0]}>
                     {barData.map((d, i) => <Cell key={i} fill={d.color} />)}
                   </Bar>
@@ -101,7 +101,7 @@ export function HoursPage({ sessions }: Props) {
                   <Pie data={barData} dataKey="min" nameKey="name" cx="50%" cy="50%" outerRadius={85} innerRadius={45}>
                     {barData.map((d, i) => <Cell key={i} fill={d.color} />)}
                   </Pie>
-                  <Tooltip formatter={(v: number) => formatMinutes(v)} />
+                  <Tooltip formatter={(v) => formatMinutes(Number(v ?? 0))} />
                 </PieChart>
               </ResponsiveContainer>
             </div>
@@ -117,7 +117,7 @@ export function HoursPage({ sessions }: Props) {
               <CartesianGrid strokeDasharray="3 3" stroke="#EEF1F7" vertical={false} />
               <XAxis dataKey="name" tick={{ fontSize: 11 }} />
               <YAxis tick={{ fontSize: 11 }} />
-              <Tooltip formatter={(v: number) => formatMinutes(v)} />
+              <Tooltip formatter={(v) => formatMinutes(Number(v ?? 0))} />
               <Line type="monotone" dataKey="min" stroke="#0E7C86" strokeWidth={3} dot={{ r: 3, fill: '#0E7C86' }} />
             </LineChart>
           </ResponsiveContainer>

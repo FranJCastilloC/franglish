@@ -1,6 +1,6 @@
-import { useState, useMemo, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { ChevronRight, Plus, MessageSquare, Check, BookOpen } from 'lucide-react';
-import { Card, Badge, ProgressBar, SectionTitle, PageHeader, Empty, Field, inputClass, btnPrimary, btnGhost, StatCard } from '../components/ui';
+import { Card, Badge, SectionTitle, PageHeader, Empty, Field, inputClass, btnPrimary, btnGhost } from '../components/ui';
 import { STATUS_CONFIG, statusById } from '../lib/constants';
 import { formatMinutes, todayLocal } from '../lib/date';
 import type { GrammarTopic, GrammarPhase, StudySession, TopicStatus } from '../types/database';
@@ -55,8 +55,6 @@ export function LessonsPage({ topics, phases, sessions, onUpdateProgress, onNewS
   }).length;
   const masteredCount = topics.filter(t => t.progress?.status === 'dominado').length;
   const nextTopic = topics.find(t => (t.progress?.status ?? 'no_iniciado') !== 'dominado');
-
-  const phasesByNumber = new Map(phases.map(p => [p.id, p]));
 
   return (
     <div>

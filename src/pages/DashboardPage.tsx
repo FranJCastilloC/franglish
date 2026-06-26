@@ -3,7 +3,7 @@ import { Clock, Flame, Check, ChevronRight, Plus } from 'lucide-react';
 import {
   Card, Ring, ProgressBar, StatCard, SectionTitle, Badge, PageHeader, Empty, btnPrimary, btnGhost
 } from '../components/ui';
-import { CATEGORY_CONFIG, CATEGORIES, STATUS_CONFIG, statusById } from '../lib/constants';
+import { CATEGORY_CONFIG, CATEGORIES, statusById } from '../lib/constants';
 import { calculateStudyStreak } from '../lib/streak';
 import { formatMinutes, todayLocal } from '../lib/date';
 import type { StudySession, GrammarTopic, GrammarPhase } from '../types/database';

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Plus, Pencil, Trash2, X, Check, BookOpen } from 'lucide-react';
-import { Card, SectionTitle, PageHeader, Empty, Field, Badge, RatingButtons, StatCard, inputClass, btnPrimary, btnGhost, btnDanger, btnIcon } from '../components/ui';
+import { Card, PageHeader, Empty, Field, Badge, RatingButtons, StatCard, inputClass, btnPrimary, btnGhost, btnDanger, btnIcon } from '../components/ui';
 import { CATEGORY_CONFIG } from '../lib/constants';
 import { todayLocal, formatMinutes } from '../lib/date';
 import type { ReadingLog } from '../types/database';
@@ -32,10 +32,6 @@ const Note = ({ label, text, color }: { label: string; text: string; color: stri
 export function ReadingPage({ userId, logs, onCreate, onUpdate, onDelete, onFlash }: Props) {
   const [editing, setEditing] = useState<(Omit<ReadingLog, 'id' | 'created_at' | 'updated_at'> & { id?: string }) | null>(null);
 
-  const totalPages = logs.reduce((a, l) => {
-    const p = l.chapter_or_pages.match(/\d+/);
-    return a + (p ? +p[0] : 0);
-  }, 0);
   const totalMin = logs.filter(l => l.completed).reduce((a, l) => a + l.duration_minutes, 0);
 
   const handleSave = async () => {

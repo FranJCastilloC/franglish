@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { Card, PageHeader, Empty, Field, Badge, inputClass } from '../components/ui';
+import { Card, PageHeader, Empty, Field, inputClass } from '../components/ui';
 import { STATUS_CONFIG, statusById } from '../lib/constants';
 import type { GrammarTopic, TopicStatus } from '../types/database';
 

@@ -180,8 +180,8 @@ export default function App() {
             userId={uid}
             events={calendar.events}
             topics={grammar.topics}
-            onCreate={calendar.create}
-            onUpdate={calendar.update}
+            onCreate={async (e) => { await calendar.create(e); }}
+            onUpdate={async (id, patch) => { await calendar.update(id, patch); }}
             onDelete={calendar.remove}
             onFlash={flash}
           />
@@ -191,8 +191,8 @@ export default function App() {
             userId={uid}
             entries={journal.entries}
             topics={grammar.topics}
-            onCreate={journal.create}
-            onUpdate={journal.update}
+            onCreate={async (e) => { await journal.create(e); }}
+            onUpdate={async (id, patch) => { await journal.update(id, patch); }}
             onDelete={journal.remove}
             onFlash={flash}
           />
@@ -202,8 +202,8 @@ export default function App() {
             userId={uid}
             sessions={sesame.sessions}
             topics={grammar.topics}
-            onCreate={sesame.create}
-            onUpdate={sesame.update}
+            onCreate={async (s) => { await sesame.create(s); }}
+            onUpdate={async (id, patch) => { await sesame.update(id, patch); }}
             onDelete={sesame.remove}
             onFlash={flash}
           />
@@ -212,8 +212,8 @@ export default function App() {
           <ReadingPage
             userId={uid}
             logs={reading.logs}
-            onCreate={reading.create}
-            onUpdate={reading.update}
+            onCreate={async (l) => { await reading.create(l); }}
+            onUpdate={async (id, patch) => { await reading.update(id, patch); }}
             onDelete={reading.remove}
             onFlash={flash}
           />
@@ -233,7 +233,7 @@ export default function App() {
         />
       )}
 
-      {toast && <Toast message={toast} onClose={() => setToast('')} />}
+      {toast && <Toast message={toast} />}
     </div>
   );
 }
