@@ -286,7 +286,7 @@ export function CalendarPage({ userId, events, topics, onCreate, onUpdate, onDel
                     <span className="text-xs text-[#5B6678] w-20 shrink-0 font-semibold capitalize">{label}</span>
                     <span className="w-2 h-2 rounded-full shrink-0" style={{ background: cat?.color }} />
                     <span className="text-sm flex-1 truncate">{ev.title}</span>
-                    <Badge color={cat?.color ?? '#888'} bg={cat?.color + '22' ?? '#eee'}>
+                    <Badge color={cat?.color ?? '#888'} bg={(cat?.color ?? '#888') + '22'}>
                       {cat?.label}
                     </Badge>
                     <button
