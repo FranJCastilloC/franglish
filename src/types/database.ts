@@ -67,6 +67,56 @@ export interface GrammarTopic {
   progress?: UserTopicProgress | null;
 }
 
+export interface ClassVocabItem {
+  term: string;
+  definition: string;
+}
+
+export interface ClassExercise {
+  title: string;
+  instructions: string;
+  items: string[];
+}
+
+export interface ClassChallenge {
+  title?: string;
+  scenario?: string;
+  remember?: string[];
+  example?: string;
+}
+
+export interface UserClassProgress {
+  id: string;
+  user_id: string;
+  course_class_id: string;
+  status: TopicStatus;
+  challenge_done: boolean;
+  confidence_level: number;
+  notes: string;
+  attended_on: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface CourseClass {
+  id: string;
+  class_number: number;
+  module_id: string | null;
+  title: string;
+  goal: string;
+  grammar_focus: string[];
+  vocabulary: ClassVocabItem[];
+  key_phrases: string[];
+  exercises: ClassExercise[];
+  challenge: ClassChallenge;
+  reading: string;
+  created_at: string;
+  // joined
+  module?: Module | null;
+  topics?: GrammarTopic[];
+  progress?: UserClassProgress | null;
+}
+
 export interface StudySession {
   id: string;
   user_id: string;

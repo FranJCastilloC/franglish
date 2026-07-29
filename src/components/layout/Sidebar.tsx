@@ -1,15 +1,16 @@
 import {
   LayoutDashboard, GraduationCap, CalendarDays, NotebookPen, Clock,
-  MessageSquare, BookOpen, ListChecks, Flame, Sparkles, Target,
+  MessageSquare, BookOpen, ListChecks, Flame, Sparkles, Target, Presentation,
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 export type TabId =
-  | 'dashboard' | 'grammar' | 'lessons' | 'content'
+  | 'dashboard' | 'classes' | 'grammar' | 'lessons' | 'content'
   | 'calendar' | 'journal' | 'sesame' | 'reading' | 'hours' | 'routine';
 
 const NAV: [TabId, string, LucideIcon][] = [
   ['dashboard', 'Inicio',      LayoutDashboard],
+  ['classes',   'Clases',      Presentation],
   ['grammar',   'Gramática',   GraduationCap],
   ['lessons',   'Lecciones',   BookOpen],
   ['content',   'Contenidos',  ListChecks],

@@ -8,6 +8,7 @@ import { AuthPage } from './pages/AuthPage';
 import { DashboardPage } from './pages/DashboardPage';
 import { GrammarPage } from './pages/GrammarPage';
 import { LessonsPage } from './pages/LessonsPage';
+import { ClassesPage } from './pages/ClassesPage';
 import { ContentPage } from './pages/ContentPage';
 import { CalendarPage } from './pages/CalendarPage';
 import { JournalPage } from './pages/JournalPage';
@@ -18,6 +19,7 @@ import { RoutinePage } from './pages/RoutinePage';
 import { useAuth } from './hooks/useAuth';
 import { isConfigured } from './lib/supabase';
 import { useGrammar } from './hooks/useGrammar';
+import { useClasses } from './hooks/useClasses';
 import { useSessions } from './hooks/useSessions';
 import { useCalendar } from './hooks/useCalendar';
 import { useJournal } from './hooks/useJournal';
@@ -37,6 +39,7 @@ export default function App() {
 
   const uid = user?.id ?? '';
   const grammar = useGrammar(uid);
+  const courseClasses = useClasses(uid);
   const sessions = useSessions(uid);
   const calendar = useCalendar(uid);
   const journal = useJournal(uid);
@@ -144,6 +147,14 @@ export default function App() {
             phases={grammar.phases}
             onNewSession={() => setSessionModal({ open: true })}
             onTabChange={(t) => setTab(t as TabId)}
+          />
+        )}
+        {tab === 'classes' && (
+          <ClassesPage
+            classes={courseClasses.classes}
+            onUpdateProgress={(classId, patch) => courseClasses.updateProgress(classId, patch)}
+            onNewSession={(over) => setSessionModal({ open: true, initial: over as Partial<SessionDraft> })}
+            onFlash={flash}
           />
         )}
         {tab === 'grammar' && (

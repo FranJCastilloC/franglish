@@ -1,6 +1,9 @@
 .env
 .env.local
 
+# Material del curso (copyright i.speak) — no publicar en el repo público
+Modulos/
+
 # Logs
 logs
 *.log
